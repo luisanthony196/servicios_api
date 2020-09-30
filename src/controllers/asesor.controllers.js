@@ -18,6 +18,15 @@ export const getAsesorById = async (req, res) => {
     res.status(200).json(asesor)
 }
 
+export const logAsesor = async (req, res) => {
+    const {telefono, dni} = req.body
+    const asesor = await Asesor.find({
+        telefono: telefono,
+        dni: dni
+    })
+    res.status(200).json(asesor[0])
+}
+
 export const updateAsesorById = async (req, res) => {
     const updateAsesor = await Asesor.findByIdAndUpdate(req.params.asesorId, req.body, {
         new: true

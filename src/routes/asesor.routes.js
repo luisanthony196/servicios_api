@@ -9,6 +9,8 @@ router.get('/', asesorCtrl.getAsesores)
 
 router.get('/:asesorId', asesorCtrl.getAsesorById)
 
+router.post('/login', asesorCtrl.logAsesor)
+
 router.put('/:asesorId', asesorCtrl.updateAsesorById)
 
 router.delete('/:asesorId', asesorCtrl.deleteAsesorById)
