@@ -18,6 +18,11 @@ export const getServicioById = async (req, res) => {
     res.status(200).json(servicio)
 }
 
+export const getServiciosByCliente = async (req, res) => {
+    const servicios = await Servicio.find({cliente: req.params.clienteId})
+    res.status(200).json(servicios)
+}
+
 export const updateServicioById = async (req, res) => {
     const updateServicio = await Servicio.findByIdAndUpdate(req.params.servicioId, req.body, {
         new: true

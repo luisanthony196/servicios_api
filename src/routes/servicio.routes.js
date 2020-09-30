@@ -9,6 +9,8 @@ router.get('/', servicioCtrl.getServicios)
 
 router.get('/:servicioId', servicioCtrl.getServicioById)
 
+router.get('/cliente/:clienteId', servicioCtrl.getServiciosByCliente)
+
 router.put('/:servicioId', servicioCtrl.updateServicioById)
 
 router.delete('/:servicioId', servicioCtrl.deleteServicioById)

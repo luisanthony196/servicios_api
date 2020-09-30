@@ -10,7 +10,10 @@ const reclamoSchema = new Schema({
         type: Schema.Types.ObjectId
     },
     concepto: 'String',
-    fecha_emi: 'Date',
+    fecha_emi: {
+        type: Date,
+        default: Date.now
+    },
     fecha_ven: 'Date',
     prioridad: 'Number',
     problema: {
