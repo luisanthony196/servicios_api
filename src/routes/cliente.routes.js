@@ -7,6 +7,8 @@ router.post('/', clienteCtrl.createCliente)
 
 router.get('/', clienteCtrl.getClientes)
 
+router.get('/atenciones/:clienteDni', clienteCtrl.getAtencionesByDni)
+
 router.get('/:clienteId', clienteCtrl.getClienteById)
 
 router.put('/:clienteId', clienteCtrl.updateClienteById)

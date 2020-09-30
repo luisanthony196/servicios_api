@@ -1,4 +1,6 @@
 import Cliente from '../models/Cliente'
+import Servicio from '../models/Servicio'
+import Atencion from '../models/Atencion'
 
 export const createCliente = async (req, res) => {
     const {nombre, direccion, apellido, dni, fecha_nac, servicios} = req.body;
@@ -11,6 +13,13 @@ export const createCliente = async (req, res) => {
 export const getClientes = async (req, res) => {
     const clientes = await Cliente.find()
     res.json(clientes)
+}
+
+export const getAtencionesByDni = async (req, res) => {
+    const cliente = await Cliente.findOne({dni: req.params.clienteDni})
+    const servicios = await Servicio.find({cliente: cliente['_id']})
+    const atenciones = await Atencion.find({servicio: {$in: servicios}})
+    res.json(atenciones)
 }
 
 export const getClienteById = async (req, res) => {
